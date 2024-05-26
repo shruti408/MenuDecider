@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import MenuContext from "../context/menuContext";
 
 function GenerateDish() {
-    let [dish, setDish] = useState("Poha");
+    let [dish, setDish] = useState("");
     let { menu } = useContext(MenuContext);
 
     // menu blank case 
