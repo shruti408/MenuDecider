@@ -1,17 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Homepage from './Homepage';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import MenuContextProvider from "./context/menuContextProvider";
+import AddDish from "./components/addDish";
+import Menu from "./components/menu";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* routes start here  */}
+    <BrowserRouter>
+    {/* context provider starts here  */}
+      <MenuContextProvider>
+        <Routes>
+          {/* homepage route starts here  */}
+          <Route path="/" element={<Homepage />} />
+          {/* homepage route ends here  */}
+          {/* add dish route starts here  */}
+          <Route path="/addDish" element={<AddDish />} />
+          {/* add dish route ends here  */}
+          {/* menu route starts here  */}
+          <Route path="/menu" element={<Menu/>} />
+          {/* menu route ends here  */}
+        </Routes>
+      </MenuContextProvider>
+      {/* context provider ends here */}
+    </BrowserRouter>
+    {/* routes end here  */}
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
